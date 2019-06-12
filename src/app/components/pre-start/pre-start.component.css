@@ -1,0 +1,160 @@
+
+#background1 {
+
+    display: table;
+}
+
+.welcome {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#home img {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.welcome h2{
+	font-size: 27px;
+    font-weight: bold;
+    color: white;
+    margin: 2rem 0;
+}
+
+#home{
+    text-align: inherit;
+}
+
+.transparent a{
+	background-color: #006EBE;
+    border-color: #006EBE !important;
+    color: rgb(254, 254, 254);
+    border-radius: 15px;
+    border: 1px solid;
+    font-size: 15px;
+        padding: 9px 40px;
+    margin-top: 2rem;
+}
+
+.transparent a:hover{
+	background-color: #006EBE;
+    border-color: #006EBE !important;
+}
+
+.welcome input{
+    overflow: visible;
+    background: transparent;
+    border: 1px solid;
+    border-color: #006EBE;
+    border-radius: 14px;
+    color: white;
+    outline: none;
+    width: 130px;
+    padding: 5px;
+    text-align: center;
+    margin-left: .5rem;
+    padding-top: .7rem;
+    font-weight: bold;
+}
+
+.welcome label{
+    font-size: 18px;
+    margin-bottom: 1rem;
+    display: block;
+}
+.header-logo{
+        display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 10px;
+    padding-right: 3rem;
+}
+
+@media(max-width:768px) {
+
+    .header-logo {
+        display: block;
+        position: initial !important;
+        right: 0;
+        top: 0;
+        padding-top: 0; 
+        padding-right: 0; 
+        text-align: center;
+        width: 100%;
+    }
+
+    #home img {
+        margin-top: 0;
+        margin-bottom: 30px;
+        width: 140px !important;
+        height: auto;
+        padding-top: 1.5rem;
+    }
+
+    #background1 {
+        position: initial;
+    }
+
+    .welcome{
+        padding-top: 0;
+    }
+    label.margin-top {
+        margin-top: 1rem;
+    }
+    .welcome input {
+        overflow: visible;
+        background: transparent;
+        border: 1px solid;
+        border-color: #006EBE;
+        border-radius: 14px;
+        color: white;
+        outline: none;
+        width: 130px;
+        padding: 5px;
+        text-align: center;
+        margin-left: .5rem;
+        padding-top: .7rem;
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+    .pre {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 14px;
+        margin-top: 0;
+    }
+
+    .listo {
+        margin-top: 2rem;
+    }
+}
+
+@media(max-width:480px) {
+
+    .header-logo {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding-top: 0; 
+        padding-right: 0; 
+        text-align: center;
+        width: 100%;
+    }
+
+    #home img {
+        margin-top: 0;
+        margin-bottom: 30px;
+        width: 140px !important;
+        height: auto;
+        padding-top: 1.5rem;
+    }
+
+    .welcome label {
+        font-size: 14px !important;
+        margin-bottom: .5rem !important;
+        display: block !important;
+    }
+
+}

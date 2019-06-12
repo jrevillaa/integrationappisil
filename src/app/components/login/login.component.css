@@ -1,0 +1,57 @@
+.welcome.login {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.login form{
+	width: 30%;
+    margin: 0 auto;
+    background: rgba(90, 0, 158, 0.62);
+    padding: 4rem 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+.login form img{
+	width: 45%;
+	margin: 0 auto;
+	margin-top: 0 !important;
+	margin-bottom: 3rem !important
+}
+
+#background1{
+	display: table;
+}
+
+.capsule-button{
+	margin-top: 2rem;
+	cursor: pointer;
+}
+
+@media(max-width: 768px){
+	.login form {
+	    width: 50%;
+	    margin: 0 auto;
+	    background: rgba(90, 0, 158, 0.62);
+	    padding: 4rem 0;
+	    font-family: 'Raleway', sans-serif;
+	     padding: 1.5rem 0;
+	}
+
+	#home img {
+	    margin-top: 120px;
+	    margin-bottom: 30px;
+	    width: 140px !important;
+	    height: auto;
+	}
+
+	
+}
+
+@media(max-width: 480px){
+	.login form {
+	    width: 80%;
+	    margin: 0 auto;
+	    background: rgba(90, 0, 158, 0.62);
+	    font-family: 'Raleway', sans-serif;
+	}
+}

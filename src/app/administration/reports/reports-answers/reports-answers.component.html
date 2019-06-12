@@ -1,0 +1,43 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li *ngIf="user.role == 'Admin'" class="breadcrumb-item"><a  [routerLink]="['/admin/empresas']">Empresas</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="[(user.role == 'Admin' || user.role == 'Poolster')?('/admin/empresas/' + id):('/admin/empresas/' + id + '/reportes')]"s>{{company.name}}</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="['/admin/empresas/' + id + '/reportes']">Resultados</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">Respuestas</li>
+		</div>
+		<a [routerLink]="['/admin/empresas/' + id + '/reportes']"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component">
+		<div class="filters">
+			<div class="box-form-add">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Dimensión (Encuesta)</label>
+					<select [(ngModel)]="filtro.dimension" (change)="changeDimension(filtro.dimension)">
+						<option *ngFor="let dimension of dimensiones" [ngValue]="dimension.id">{{dimension.name}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Área (Encuesta)</label>
+					<select [(ngModel)]="filtro.area">
+						<option *ngFor="let area of areas" [ngValue]="area.id">{{area.name}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Area (Empresa)</label>
+					<select [(ngModel)]="filtro.area_empresa">
+						<option *ngFor="let area_ of areas_empresa" [ngValue]="area_.id">{{area_.name}}</option>
+					</select>
+				</div>
+				<div class="actions">
+					<button type="button" class="btn btn-outline-primary"> <i class="fa fa-search"></i> Filtrar</button>
+				</div>
+			</div>
+		</div>
+		<div class="box box-pie">
+			<div id="myDiv"></div>
+		</div>
+	</div>
+</div>

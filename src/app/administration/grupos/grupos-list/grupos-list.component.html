@@ -1,0 +1,62 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li *ngIf="user.role == 'Admin'" class="breadcrumb-item"><a  [routerLink]="['/admin/empresas/']">Empresas</a></li>
+		    <li class="breadcrumb-item"><a [routerLink]="[(user.role == 'Admin' || user.role == 'Poolster')?('/admin/empresas/' + id):('/admin/empresas/' + id + '/grupos')]">{{company.name}}</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">Batchs</li>
+		</div>
+		<a *ngIf="user.role == 'Admin' || user.role == 'Poolster'" [routerLink]="['/admin/empresas/' + id]"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component">
+		<div class="box-actions">
+			<h2 class="title">Batchs</h2>
+			<div class="actions">
+				<button type="button" class="btn btn-outline-primary" [routerLink]="['/admin/empresas/' + id + '/grupos/crear']"> <i class="fa fa-plus"></i> Agregar Batch</button>
+			</div>
+		</div>
+		<div class="users" >
+			<div *ngIf="grupos.length > 0">
+				<table class="table quiz">
+					<thead>
+						<th class="text">Nombre</th>
+						<th class="text">Max. Usuarios</th>
+						<th class="text">Fecha de Inicio</th>
+						<th class="text">Fecha de Fin</th>					
+						<th class="last center">Acciones</th>
+					</thead>
+					<tbody>
+						<tr *ngFor="let grupo of grupos | paginate: { itemsPerPage: filterGruposAll.quantity, currentPage: filterGruposAll.p1 }">
+							<td class="text">{{grupo.name}}</td>
+							<td class="text">{{grupo.max_users }}</td>
+							<td class="text">{{grupo.date_start.split('T')[0]}}</td>
+							<td class="text">{{grupo.date_end.split('T')[0]}}</td>
+							<td class="last center">
+								<button type="button" title="Editar" class="btn btn-outline-primary" [routerLink]="['/admin/empresas/' + id + '/grupos/' + grupo._id + '/editar']"><i class="fa fa-pencil"></i></button>
+								<button type="button" title="Eliminar" (click)="openModal(template, grupo)" class="btn btn-outline-danger"> <i class="fa fa-trash"></i></button>
+							</td>
+						</tr>
+						<ng-template #template>
+						  <div class="modal-body popup-finish">
+						    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+						      <span aria-hidden="true">&times;</span>
+						    </button>
+						    <h3>¿Estás seguro que desea eliminar este Batch?</h3>
+						    <div class="actions">
+						      <button _ngcontent-c1="" (click)="delete()" class="btn btn-primary btn-pop">Sí</button>
+						      <button _ngcontent-c1="" (click)="modalRef.hide()" class="btn btn-danger">No</button>
+						    </div>
+						  </div>
+						</ng-template>
+					</tbody>
+				</table>
+
+				<pagination-controls class="pagination-oefa" (pageChange)="pageChanged($event)" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+			</div>
+		
+			<p *ngIf="grupos.length == 0">No existen Batchs para esta empresa.</p>
+
+		</div>
+	</div>
+</div>

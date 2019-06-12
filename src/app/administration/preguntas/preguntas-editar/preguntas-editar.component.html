@@ -1,0 +1,83 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li class="breadcrumb-item"><a  [routerLink]="['/admin/preguntas']">Dimensiones</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a  [routerLink]="['/admin/preguntas/' + question.dimension]">{{question.dimension_name}}</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a  [routerLink]="['/admin/preguntas/' + question.dimension + '/' + question.area + '/lista-preguntas']">{{question.area_name}}</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">Editar Pregunta</li>
+		</div>
+	    <a [routerLink]="['/admin/preguntas/' + question.dimension + '/' + question.area + '/lista-preguntas']"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component">
+		<div class="form-add block form-view">
+			<h4><strong>Editar pregunta</strong></h4>
+			<div class="box-form-add">
+				<!-- <div class="form-group">
+					<label for="exampleInputEmail1">Dimensión:</label>
+					<select [(ngModel)]="pregunta.dimension" (change)="changeDimension(pregunta.dimension)">
+						<option *ngFor="let dimension of dimensiones" [ngValue]="dimension.id">{{dimension.name}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Area:</label>
+					<select [(ngModel)]="pregunta.area">
+						<option *ngFor="let area of areas" [ngValue]="area.id">{{area.name}}</option>
+					</select>
+				</div> -->
+				<div class="form-group">
+					<label for="exampleInputEmail1">Pregunta:</label>
+					<textarea [(ngModel)]="question.text"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Tipo:</label>
+					<select name="type" [(ngModel)]="question.type" (ngModelChange)="onChangeType($event)">
+						<option value="">Seleccione</option>
+						<option value="1">V o F</option>
+						<option value="2">Con alternativas</option>
+						<option value="3">Sin alternativas</option>
+					</select>
+				</div>
+
+				<div *ngIf="question.type == '1'" class="form-answers">
+					<label for="exampleInputEmail1">Respuestas:</label>
+					<input type="text" name="r1" [(ngModel)]="question.answers[0].text">
+					<br>
+					<br>
+					<input type="text" name="r2" [(ngModel)]="question.answers[1].text">
+					<br>
+					<br>
+				</div>
+
+				<div *ngIf="question.type == '2'" class="form-answers">
+					<label for="exampleInputEmail1">Respuestas:
+					<button type="button" title="Eliminar" (click)="addAnswer()" class="btn btn-outline-success"> <i class="fa fa-plus"></i></button></label>
+					<div *ngFor="let answer of question.answers; let i = 'index'">
+						<input type="text" name="r{{i}}" [(ngModel)]="answer.text"> <button *ngIf="question.answers.length > 3" type="button" title="Eliminar" (click)="deleteAnswer(i)" class="btn btn-outline-danger"> <i class="fa fa-trash"></i></button>
+						<br>
+						<br>
+					</div>					
+				</div>
+
+				<div *ngIf="question.type != '' && question.type != '3'" class="form-group">
+					<label for="exampleInputEmail1">Correcta:</label>
+					<select [(ngModel)]="question.correct">
+						<option *ngFor="let answer of question.answers; let i = 'index'" (value)="i">
+							{{i}}
+						</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Orden:</label>
+					<input [(ngModel)]="question.weight" class="medium" type="Number" name="weight" placeholder="">
+				</div>
+
+				<div class="actions">
+					<button (click)="updateQuestion()" type="button" class="btn btn-outline-primary"> <i class="fa fa-save"></i> Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,46 @@
+<div id="home">
+	<div id="background1"> </div>
+
+	<div class="box-mid">
+		<img src="./assets/images/logo.png">
+		<br>
+		<br>
+		<h1 class="title-gigant">Estos son tus resultados</h1>
+		<br>
+		<div class="flex general">
+			<div class="flex w-7 m-10">
+				<div style="width: 100%">
+					<h1 class="title-big">Entre Dimensiones</h1>
+					<br>
+				</div>
+				<div class="mgtb-10" *ngFor="let dimen of dimension">
+					<div class="donut" [ngStyle]="{'animation-delay': '-' + dimen.bar + 's'}"><h1 class="text-donut">{{dimen.percent}}%</h1></div>
+					<br>
+					<h1>{{dimen.name}}</h1>
+				</div>
+			</div>
+			<div class="flex w-3 m-10 center second">
+				<div style="width: 100%">
+					<h1 class="title-big">Total</h1>
+					<br>
+				</div>
+				<div>
+					<div class="donut magenta" [ngStyle]="{'animation-delay': '-' + total.bar + 's'}"><h1 class="text-donut">{{total.percent}}%</h1></div>
+					<br>
+					<!-- <h1>{{total.name}}</h1> -->
+				</div>
+			</div>
+		</div>
+
+		<h1 class="bien">¡Muchas Gracias!</h1>
+		<h1>Terminaste tu evaluación.</h1>
+		
+		<div id="social-media">
+			<a href="https://www.facebook.com/EnEstadoBeta/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+			<a href="https://www.youtube.com/channel/UCJoChqjo0Gd-s6ubqqPzciA" target="_blank"><i class="fa fa-youtube-square"></i></a>
+			<a href="https://www.linkedin.com/company/enestadobeta/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+			<a href="https://www.instagram.com/enestadobeta/?hl=es-la" target="_blank"><i class="fa fa-instagram"></i></a>
+		</div>
+	</div>
+
+</div>

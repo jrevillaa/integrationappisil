@@ -1,0 +1,77 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li class="breadcrumb-item"><a  [routerLink]="['/admin/preguntas']">Dimensiones</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a  [routerLink]="['/admin/preguntas/' + id]">{{area.dimension_name}}</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">{{area.name}}</li>
+		</div>
+	    <a [routerLink]="['/admin/preguntas/' + id]"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component">
+		<div class="box-actions">
+			<h2 class="title">Preguntas</h2>
+			<div class="actions">
+				<button type="button" class="btn btn-outline-primary" [routerLink]="['/admin/preguntas/'+ area.dimension +'/' + area._id +'/crear-pregunta']"> <i class="fa fa-plus"></i> Agregar Pregunta</button>
+			</div>
+		</div>
+		<div class="form-add">
+			<h4><strong>Editar Area</strong></h4>
+			<!-- <p>Ingresa el nombre del area y haz clic en Guardar.</p> -->
+			<div class="box-form-add">
+				<div class="form-group">
+					<label>Nombre:</label>
+					<input [(ngModel)]="area.name" class="medium" type="text" name="name" placeholder="">
+				</div>
+				<div class="form-group">
+					<label>Orden:</label>
+					<input [(ngModel)]="area.weight" class="medium" type="Number" name="weight" placeholder="">
+					<button type="button" (click)="updateArea()" class="btn btn-outline-success margin-top"> <i class="fa fa-save"></i> Guardar</button>
+				</div>
+			</div>
+		</div>
+		<div class="users">
+			<table class="table quiz">
+				<thead>
+					<th class="text">Pregunta</th>
+					<th class="last center">Acciones</th>
+				</thead>
+				<tbody>
+					<tr *ngFor="let pregunta of questions | paginate: { itemsPerPage: filterPreguntasAll.quantity, currentPage: filterPreguntasAll.p1 }">
+						<td class="text">{{pregunta.text}}</td>
+						<td class="last center">
+							<button type="button" title="Editar" class="btn btn-outline-primary" [routerLink]="['/admin/preguntas/' + area.dimension +'/' + area._id + '/editar-pregunta/' + pregunta._id + '/editar']"><i class="fa fa-pencil"></i></button>
+							<button type="button" title="Eliminar" (click)="openModal(template, pregunta)" class="btn btn-outline-danger"> <i class="fa fa-trash"></i></button>
+						</td>
+					</tr>
+					<ng-template #template>
+					  <div class="modal-body popup-finish">
+					    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+					      <span aria-hidden="true">&times;</span>
+					    </button>
+					    <h3>¿Estás seguro que desea eliminar esta pregunta?</h3>
+					    <div class="actions">
+					      <button _ngcontent-c1="" (click)="deleteQuestion()" class="btn btn-primary btn-pop">Sí</button>
+					      <button _ngcontent-c1="" (click)="modalRef.hide()" class="btn btn-danger">No</button>
+					    </div>
+					  </div>
+					</ng-template>
+				</tbody>
+			</table>
+			<pagination-controls class="pagination-oefa" (pageChange)="pageChanged($event)" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+		</div>
+	</div>
+</div>
+<ng-template #templateArea>
+  <div class="modal-body popup-finish">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h3>¿Estás seguro que desea eliminar esta Area?</h3>
+    <div class="actions">
+      <button _ngcontent-c1="" (click)="deleteArea()" class="btn btn-primary btn-pop">Sí</button>
+      <button _ngcontent-c1="" (click)="modalRef.hide()" class="btn btn-danger">No</button>
+    </div>
+  </div>
+</ng-template>

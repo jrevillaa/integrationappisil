@@ -1,0 +1,53 @@
+<div class="content">
+	<div class="box-actions">
+		<h2 class="title">Dimensiones</h2>
+		<div class="actions">
+			<button type="button"  (click)="collapse()" class="btn btn-outline-primary"> <i class="fa fa-plus"></i> Agregar Dimensión</button>
+		</div>
+	</div>
+	<div class="form-add">
+		<h4><strong>Agregar</strong></h4>
+		<!-- <p>Ingresa el nombre del area y haz clic en Guardar.</p> -->
+		<div class="box-form-add">
+			<div class="form-group">
+				<label>Nombre:</label>
+				<input [(ngModel)]="newDimension.name" class="medium" type="text" name="name" placeholder="">
+			</div>
+			<div class="form-group">
+				<label>Curso:</label>
+				<select [(ngModel)]="newDimension.course" class="medium" name="course">
+						<option *ngFor="let course of courses" value="{{course._id}}">{{course.name}}</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Orden:</label>
+				<input [(ngModel)]="newDimension.weight" class="medium" type="Number" name="weight" placeholder="">
+				<button type="button" (click)="save()" class="btn btn-outline-success margin-top"> <i class="fa fa-save"></i> Guardar</button>
+			</div>
+		</div>
+	</div>
+	<div class="list-component">
+		<div *ngFor="let dimension of dimensions" class="box empresa" (click)="goDimension($event, dimension._id)">
+			<div class="title">
+				<h3>{{dimension.name}}</h3>
+			</div>
+			<div class="title">
+				<button type="button" title="Editar" class="btn btn-outline-primary" [routerLink]="['/admin/preguntas/' + dimension._id + '/editar']"><i class="fa fa-pencil"></i></button>
+				<button type="button" title="Eliminar" (click)="openModal(template, dimension)" class="btn btn-outline-danger"> <i class="fa fa-trash"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #template>
+  <div class="modal-body popup-finish">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h3>¿Estás seguro que desea eliminar esta Dimensión?</h3>
+    <div class="actions">
+      <button _ngcontent-c1="" (click)="deleteDimension()" class="btn btn-primary btn-pop">Sí</button>
+      <button _ngcontent-c1="" (click)="modalRef.hide()" class="btn btn-danger">No</button>
+    </div>
+  </div>
+</ng-template>

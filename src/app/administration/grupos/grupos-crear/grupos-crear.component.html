@@ -1,0 +1,57 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li *ngIf="user.role == 'Admin'" class="breadcrumb-item"><a  [routerLink]="['/admin/empresas']">Empresas</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="[(user.role == 'Admin' || user.role == 'Poolster')?('/admin/empresas/' + id):('/admin/empresas/' + id + '/grupos')]"s>{{company.name}}</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="['/admin/empresas/' + id + '/grupos']">Batchs</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">Crear Batchs</li>
+		</div>
+		<a [routerLink]="['/admin/empresas/' + id + '/grupos']"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component">
+		<div class="form-add block form-view">
+			<h4><strong>Agregar nuevo Batch</strong></h4>
+			<div class="box-form-add">
+				<div class="form-group">
+					<label>Nombre:</label>
+					<input [(ngModel)]="group.name" type="text" name="name">
+				</div>
+				<div class="form-group">
+					<label>Max. Usuarios:</label>
+					<input [(ngModel)]="group.max_users" type="number" name="max_users">
+				</div>
+				<div class="form-group">
+					<label>Fecha de Inicio:</label>
+					<input [(ngModel)]="group.date_start" type="date" name="date_start" id="date_start" maxlength="10">
+					<cite>Formato: dd/mm/aaaa - Ejemplo: 05/09/2018</cite>
+				</div>
+				<div class="form-group">
+					<label>Fecha de Fin:</label>
+					<input [(ngModel)]="group .date_end" type="date" name="date_end" id="date_end" maxlength="10">
+					<cite>Formato: dd/mm/aaaa - Ejemplo: 05/09/2018</cite>
+				</div>
+				<div class="actions">
+					<button type="button" (click)="save(templateValidate)" class="btn btn-outline-primary"> <i class="fa fa-save"></i> Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<ng-template #templateValidate>
+  <div class="modal-body popup-finish">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <br><br>
+  	<div class="preCarga">
+  		<alert  type="danger">
+	    	<p><strong>Error: </strong>Por favor completar todos los campos o ingrese la fecha de acuerdo al formato solicitado.</p>
+	    </alert>
+  	</div>
+    <div class="actions">
+      <a class="btn btn-primary white btn-pop" (click)="close()">OK</a>
+    </div>
+  </div>
+</ng-template>

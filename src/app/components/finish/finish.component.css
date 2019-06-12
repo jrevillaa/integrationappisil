@@ -1,0 +1,93 @@
+#background1{
+	position: fixed;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+	background: url("/assets/images/bg20.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+h1{
+	color: #fff;
+	font-size: 1.1rem;
+	font-weight: 100;
+}
+
+h1.bien{
+	margin-top: 30px;
+}
+
+#home{
+	text-align: center;
+}
+
+#home img{
+	margin-top: 0px;
+	margin-bottom: 0px;
+    max-width: 150px;
+    width: 20%;
+}
+
+#social-media i{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 31px;
+    color: #fff;
+}
+
+#social-media a{
+	margin: 0 4px; 
+	border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+	/*color: #007bff;*/
+    text-decoration: none;
+    /*background-color: red;*/
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+
+/*#social-media a:nth-child(1){
+	background: #4267B2;
+}
+#social-media a:nth-child(2){
+	background: #2DAAE2;
+}
+#social-media a:nth-child(3){
+	background: #DD5144;
+}
+#social-media a:nth-child(4){
+	background: #FF0000;
+}
+#social-media a:nth-child(5){
+	background: #0077B5;
+}*/
+
+div#social-media {
+    margin-top: 3rem;
+}
+.box-mid {
+    padding-top: 2rem;
+}
+
+h1.text-donut{
+    font-size: 24px;
+}
+
+h1.title-gigant{
+	font-size: 2.1em;
+}
+h1.title-big{
+	font-size: 1.7em;
+}
+
+.mgtb-10{
+	margin: 10px 0;
+}

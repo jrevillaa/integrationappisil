@@ -1,0 +1,37 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li class="breadcrumb-item"><a  [routerLink]="['/admin/usuarios']">Empleados</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">Editar</li>
+		</div>
+	    <a [routerLink]="['/users']"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component">
+		<div class="form-add block form-view">
+			<h4><strong>Agregar nuevo Usuario</strong></h4>
+			<div class="box-form-add">
+				<div class="form-group">
+					<label>Nombres:</label>
+					<input [(ngModel)]="user.firstname" type="text" name="firstname">
+				</div>
+				<div class="form-group">
+					<label>Apellidos:</label>
+					<input [(ngModel)]="user.lastname" type="text" name="lastname">
+				</div>
+				<div class="form-group">
+					<label>DNI:</label>
+					<input [(ngModel)]="user.dni" type="text" name="dni">
+				</div>
+				<div class="form-group">
+					<label>Correo:</label>
+					<input [(ngModel)]="user.email" type="mail" name="email">
+				</div>
+				<div class="actions">
+					<button type="button" (click)="save()" class="btn btn-outline-primary"> <i class="fa fa-save"></i> Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

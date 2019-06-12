@@ -1,0 +1,243 @@
+#background2{
+	position: fixed;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+	background: url("/assets/images/bg21.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#container{
+	width: 80%;
+    margin: auto;
+    margin-bottom: 0;
+    position: relative;
+    height: 97vh;
+}
+
+.question{
+	margin-bottom: 0;
+	margin-top: 0;
+	/*background: rgba(255,255,255,.7);*/
+	border-radius: 10px;
+	padding: 20px 0;
+    padding-bottom: 0;
+}
+
+.question input{
+	padding: 5px 5px;
+	font-size: 15px;
+	width: calc(100% - 10px);
+}
+
+.question input.checkbox{
+	width: auto;
+}
+
+.btn-default{
+	background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.btn-selected{
+	color: #ddd;
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+}
+
+.btn-selected:focus{
+	box-shadow: none !important;
+}
+
+.btn-selected:hover{
+	color: #ddd;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn i{
+	color: white;
+}
+
+.bar-progress{
+	display: flex;
+    width: 100%;
+    background: transparent;
+    height: 30px;
+    padding: 0;
+    border: 1px solid white;
+    border-radius: 15px;
+    height: 8px;
+}
+
+.segment {
+    display: flex;
+    width: 100%;
+    height: calc(100%);
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.segment.passed{
+    background: transparent;
+}
+
+.area {
+    display: flex;
+    width: 100%;
+    height: calc(100%);
+    background: transparent;
+    margin: 0;
+}
+
+.area.passed{
+    background: white;
+}
+.question .text_question{
+    font-size: 1.15rem;
+}
+.part {
+    display: flex;
+    width: 100%;
+    height: calc(100%);
+    background: transparent;
+    margin: 0;
+}
+.box-imageIcon{
+    min-height: 40px;
+}
+.part.passed{
+    background: white;
+}
+
+.segment.passed .area{
+    background: white;
+}
+
+.segment.passed .area.passed .part{
+    background: white;
+}
+
+.segment.passed .area .part{
+    background: white;
+}
+
+.area.passed .part{
+    background: white;
+}
+.button{
+    width: 130px;
+}
+.capsule-button{
+    margin-top: 1.5rem;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+h2.realArea{
+    margin-top: 1.5rem;
+}
+
+@media(min-width: 1400px) {
+    #container{
+        width: 80%;
+        margin: auto;
+        margin-bottom: 0;
+        position: relative;
+        height: 80vh;
+    } 
+
+     
+}
+@media(max-width: 768px){
+
+    .question .text_question {
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    .header-logo {
+        padding-top: 0;
+        padding-bottom: 31px;
+        display: block;
+        align-items: center;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    h2.realArea {
+        margin-top: 1.5rem;
+        font-size: 15px;
+    }
+    .capsule-button{
+        margin-top: 2rem;
+         position: initial; 
+        width: 100%;
+        bottom: 0;
+        margin-bottom: 4rem;
+    }
+    .name_segment {
+        position: absolute;
+        top: -24px;
+        width: 100%;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    #container{
+        width: 94%;
+        margin: auto;
+        margin-bottom: 0;
+        position: relative;
+        height: 97vh;
+    }
+
+    .logo-left {
+        width: 140px;
+        margin-bottom: 2rem;
+    }
+
+    .bar-progress .segment:last-child p{
+        right: -21px;
+    } 
+
+    .box-rating{
+        width: 100%;
+        text-align: center;
+    }
+
+    rating {
+        text-align: center;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media(max-width: 480px){
+    .question .text_question {
+        font-size: 15px;
+        text-align: justify;
+    }
+
+    .header-logo {
+        padding-top: 0;
+        padding-bottom: 31px;
+        display: block;
+        align-items: center;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    h2.realArea{
+        margin-top: 1.5rem;
+        font-size: 16px;
+    }
+}

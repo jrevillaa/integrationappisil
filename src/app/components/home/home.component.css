@@ -1,0 +1,103 @@
+#background1{
+	position: fixed;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+	background: url("/assets/images/bg1.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#home{
+	text-align: center;
+}
+
+#home img{
+	margin-top: 40px;
+	margin-bottom: 30px;
+	    width: 200px;
+    height: auto;
+}
+
+#message{
+	width: 80%;
+	border-radius: 10px;
+	/*background: rgba(255,255,255, .7);*/
+	margin: auto;
+	padding: 45px 35px;
+	text-align: left;
+	margin-bottom: 40px;
+}
+
+#message ul{
+	margin-left: 16px;
+	font-size: 19px;
+}
+
+#message > a{
+	text-align: center;
+}
+
+#message input{
+	padding: 5px 5px;
+	font-size: 15px;
+}
+
+
+@media(max-width:768px) {
+	 #home img {
+        margin-top: 0;
+        margin-bottom: 30px;
+        width: 140px !important;
+        height: auto;
+        padding-top: 1.5rem;
+    }
+    #message{
+	    width: 90%;
+	    border-radius: 10px;
+	    margin: auto;
+	    padding: 0;
+	    text-align: left;
+	    margin-bottom: 40px;
+	}
+	#message p {
+	    font-size: 16px;
+	    color: white;
+	}
+
+	#message ul {
+	    margin-left: 16px;
+	    font-size: 16px;
+	}
+}
+
+
+@media(max-width:480px) {
+	 #home img {
+        margin-top: 0;
+        margin-bottom: 30px;
+        width: 140px !important;
+        height: auto;
+        padding-top: 1.5rem;
+    }
+    #message{
+	    width: 90%;
+	    border-radius: 10px;
+	    margin: auto;
+	    padding: 0;
+	    text-align: left;
+	    margin-bottom: 40px;
+	}
+	#message p {
+	    font-size: 15px;
+	    color: white;
+	}
+
+	#message ul {
+	    margin-left: 16px;
+	    font-size: 14px;
+	}
+}
+

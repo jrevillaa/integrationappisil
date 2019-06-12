@@ -1,0 +1,168 @@
+#background2{
+	position: fixed;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+	background: url("/assets/images/bg2.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#container{
+	width: 70%;
+	margin: auto;
+	margin-bottom: 40px;
+}
+.info-container h2{
+	text-align: center;
+    font-family: 'Helvetica-Bold';
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
+.body-collapse{
+	display: none;
+}
+.header-collapse{
+	cursor: pointer;
+	display: table;
+    width: 100%;
+}
+.image-area {
+    display: table-cell;
+    width: 4%;
+}
+.image-area img{
+	width: 100%;
+	height: auto;
+}
+.areas {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.title-area {
+    display: table-cell;
+    vertical-align: middle;
+    width: 96%;
+    padding-left: 1rem;
+}
+.body-collapse {
+    background: #006EBE;
+    margin-left: 3rem;
+    padding: 1rem;
+    border-radius: 9px;
+    padding-bottom: 0;
+}
+.title-area i{
+	padding-left: .5rem;
+    position: relative;
+    top: -3px;
+}
+.closeSlide {
+    text-align: center;
+    margin-top: 0;
+}
+.closeSlide i{
+	cursor: pointer;
+    color: white;
+    font-size: 3rem;
+    position: relative;
+    bottom: -18px;
+}
+.capsule-button{
+	margin-top: 3rem;
+}
+.descriptionInfo{
+	margin-bottom: 1rem;
+}
+
+@media(max-width:768px) {
+    #container{
+        width: 90%;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+    .info-container {
+        font-size: 16px;
+    }
+    .title-area{
+        display: table-cell;
+        vertical-align: middle;
+        width: 96%;
+        padding-left: 1rem;
+        font-size: 16px;
+    }
+
+    .header-collapse {
+        cursor: pointer;
+        display: table;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .body-collapse {
+        margin-left: 0;
+    }
+}
+
+@media(max-width:480px) {
+    #container{
+        width: 90%;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+
+    #home img{
+        margin-top: 0;
+        margin-bottom: 30px;
+        width: 140px !important;
+        height: auto;
+        padding-top: 1.5rem;
+    }
+    .info-container {
+        font-size: 14px;
+    }
+
+    .info-container h2 {
+        text-align: center;
+        font-family: 'Helvetica-Bold';
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    .info-container .nav-item {
+        width: 50%;
+    }
+    .title-area{
+        display: table-cell;
+        vertical-align: middle;
+        width: 96%;
+        padding-left: 1rem;
+        font-size: 15px;
+    }
+
+    .header-collapse {
+        cursor: pointer;
+        display: table;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .logo-left {
+        width: 150px;
+    }
+
+    .image-area{
+        display: table-cell;
+        width: 6%;
+    }
+    .header-logo {
+        padding-top: 0;
+        padding-bottom: 31px;
+        display: block;
+        align-items: center;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}

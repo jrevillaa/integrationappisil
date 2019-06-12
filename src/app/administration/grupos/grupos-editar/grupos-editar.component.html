@@ -1,0 +1,70 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li *ngIf="user.role == 'Admin'" class="breadcrumb-item"><a  [routerLink]="['/admin/empresas']">Empresas</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="[(user.role == 'Admin' || user.role == 'Poolster')?('/admin/empresas/' + id):('/admin/empresas/' + id + '/grupos')]"s>{{company.name}}</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="['/admin/empresas/' + id + '/grupos']">Batchs</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">Editar</li>
+		</div>
+		<a [routerLink]="['/admin/empresas/' + id + '/grupos']"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component">
+		 <alert  type="success" *ngIf="showMessage">
+	    	<p>Batch Editado</p>
+	    	<!-- <ul class="areasDuplicadas">
+	    		<li *ngFor="let item of updateUsers">{{item.lastname}}, {{item.firstname}}</li>
+	    	</ul> -->
+	    </alert>
+		<div class="form-add block form-view">
+			<h4><strong>Editar Batch</strong></h4>
+			<div class="box-form-add">
+				<div class="form-group">
+					<label>Nombre</label>
+					<input [(ngModel)]="group.name" type="text" name="name">
+				</div>
+				<div class="form-group">
+					<label>Max. Usuarios</label>
+					<input [(ngModel)]="group.max_users" type="number" name="max_users">
+				</div>
+				<div class="form-group">
+					<label>Fecha de Inicio</label>
+					<input [(ngModel)]="group.date_start" type="date" name="date_start" id="date_start">
+				</div>
+				<div class="form-group">
+					<label>Fecha de Fin</label>
+					<input [(ngModel)]="group.date_end" type="date" name="date_end" id="date_end">
+				</div>
+				<div class="form-group" *ngIf="group.retro_dimension.length > 0">
+					<label>Comentario General</label>
+					<textarea [(ngModel)]="group.retro_company" rows="5" name="retro_company" id="retro_company" maxlength="500">{{group.retro_company}}</textarea>
+				</div>
+				<div class="form-group" *ngFor="let item of group.retro_dimension ; let i = 'index'">
+					<label>Comentario {{item.name}}</label>
+					<textarea [(ngModel)]="item.text" rows="5" [attr.name]="'retro_dimension' + i"  [attr.id]="'retro_dimension' + i"  maxlength="500">{{item.text}}</textarea>
+				</div>
+
+				<div class="actions">
+					<button type="button" (click)="edit()" class="btn btn-outline-primary"> <i class="fa fa-save"></i> Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<ng-template #templateValidate>
+  <div class="modal-body popup-finish">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <br><br>
+  	<div class="preCarga">
+  		<alert  type="danger">
+	    	<p><strong>Error: </strong>Por favor completar todos los campos.</p>
+	    </alert>
+  	</div>
+    <div class="actions">
+      <a class="btn btn-primary white btn-pop" (click)="close()">OK</a>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,53 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li class="breadcrumb-item"><a  [routerLink]="['/users']">Empleados</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">Crear</li>
+		</div>
+	    <a [routerLink]="['/users']"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component">
+		<div class="form-add block form-view">
+			<h4><strong>Agregar nuevo empleado</strong></h4>
+			<div class="box-form-add">
+				<div class="form-group">
+					<label>Nombres</label>
+					<input [(ngModel)]="user.nombres" type="text" name="nombres">
+				</div>
+				<div class="form-group">
+					<label>Apellidos</label>
+					<input [(ngModel)]="user.apellidos" type="text" name="apellidos">
+				</div>
+				<div class="form-group">
+					<label>DNI</label>
+					<input [(ngModel)]="user.dni" type="number" name="dni">
+				</div>
+				<div class="form-group">
+					<label>Correo</label>
+					<input [(ngModel)]="user.correo" type="mail" name="correo">
+				</div>
+				<div class="actions">
+					<button type="button" (click)="save(templateValidate)" class="btn btn-outline-primary"> <i class="fa fa-save"></i> Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<ng-template #templateValidate>
+  <div class="modal-body popup-finish">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <br><br>
+  	<div class="preCarga">
+  		<alert  type="danger">
+	    	<p><strong>Error: </strong>Por favor completar todos los campos.</p>
+	    </alert>
+  	</div>
+    <div class="actions">
+      <a class="btn btn-primary white btn-pop" (click)="close()">OK</a>
+    </div>
+  </div>
+</ng-template>

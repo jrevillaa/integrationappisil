@@ -1,0 +1,23 @@
+<div id="home" class="view-home">
+	<div id="background1"> </div>
+	<img src="./assets/images/logo.png">
+
+	<div id="message">
+		<div class="capsule-button">
+			<p *ngIf="!data['startsecond']">Las preguntas han sido divididas en segmentos acordes al curso que ha sido matriculado.</p>
+			<p *ngIf="data['startsecond']">Veamos que tanto hemos mejorado.</p>
+		</div>
+		<br>
+		<br>
+		<div class="capsule-button">
+			<p>¿Listo para comenzar el assessment?</p>
+		</div>
+		<br>
+		<br>
+		
+		<div class="capsule-button">
+			<a routerLink="/encuesta" class="button"> Listo! </a>
+		</div>
+		
+	</div>
+</div>

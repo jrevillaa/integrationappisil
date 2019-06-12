@@ -1,0 +1,282 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li *ngIf="user.role == 'Admin'" class="breadcrumb-item"><a  [routerLink]="['/admin/empresas']">Empresas</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="[(user.role == 'Admin' || user.role == 'Poolster')?('/admin/empresas/' + id):('/admin/empresas/' + id + '/reportes')]">{{company.name}}</a></li>
+		    <li class="breadcrumb-item"><a [routerLink]="['/admin/empresas/' + id + '/reportes']">Resultados</a></li>
+		    <li class="breadcrumb-item">Resultados</li>
+		</div>
+		<a [routerLink]="['/admin/empresas/' + id + '/reportes']"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="questions">
+		<tabset #staticTabs>
+		    <tab heading="General">
+		    	<div class="tabGeneral" *ngIf="grupos.length > 0 ">
+		    		<div class="export">
+		    			<div class="row">
+		    				<div class="col-lg-6">
+		    					<form class="form-inline">
+		    						<div class="form-group width-normal" *ngIf="grupos.length > 1">
+									  	<label class="label-font">Seleccione Batch:</label>
+									    <select [(ngModel)]="filterDetail.group" name="group" (change)="getDataReport(id, filterDetail.group)">
+									    	<option *ngFor="let item of grupos" value="{{item._id}}">{{item.name}}</option>
+									    </select>
+									</div>
+		    					</form>
+		    				</div>
+		    				<div class="col-lg-6">
+		    					<button class="downloadedButton exportPdf" (click)="exportPdf()">Descargar Informe <i class="fa fa-download"></i></button>
+		    				</div>
+
+		    			</div>
+		    			
+		    			<!-- <button class="downloadedButton">Descargar Informe <i class="fa fa-download"></i></button> -->
+		    		</div>
+		    		<div class="content-group">
+		    			<div class="container-result">
+			    			<div class="bar-div">
+				    			<h3>Diagnóstico</h3>
+				    		</div>
+				    		<div class="row statusFinal">
+					    		<div class="col-lg-7 content-left">
+					    			<div class="box-graph-radar">
+					    				<div class="box-radar pull-right">
+							    			<div id="myDiv" style="width: 480px; height: 400px;"></div>
+							    			<div class="listClasifications">
+								    			<div class="clasification" *ngFor="let item of diagnostic" [style.background]="item.color">
+								    				<span>{{item.name}}</span>
+								    			</div>
+								    		</div>
+							    		</div>
+					    			</div>
+						    	</div>
+						    	<div class="col-lg-5">
+						    		<div class="result">
+						    			<div class="box-result" [style.background]="setColorResult(levelFinal)" *ngIf="levelFinal >=1 && levelFinal<=16">
+						    				<h5>Plasma</h5>
+						    				<p>Casi no existen bases.</p>
+						    			</div>
+						    			<div class="box-result" [style.background]="setColorResult(levelFinal)" *ngIf="levelFinal >=17 && levelFinal <=34">
+						    				<h5>Gaseoso</h5>
+						    				<p>Se ha sado un inicio tenue pero no hay un liderazgo claro ni colaboración para impulsar una cultura innovadora.</p>
+						    			</div>
+						    			<div class="box-result" [style.background]="setColorResult(levelFinal)" *ngIf="levelFinal >=35 && levelFinal <=52">
+						    				<h5>Condensación</h5>
+						    				<p>Se han empezado a notar cambios, se reconoce un liderazgo, los equipos empiezan a colaborar y están en constante aprendizaje aunque aún sin resultados.</p>
+						    			</div>
+						    			<div class="box-result" [style.background]="setColorResult(levelFinal)" *ngIf="levelFinal >=53 && levelFinal <=70">
+						    				<h5>Líquido</h5>
+						    				<p>Se empieza a trabajar la multidisciplinariedad para gestionar la innovación.</p>
+						    			</div>
+						    			<div class="box-result" [style.background]="setColorResult(levelFinal)" *ngIf="levelFinal >=71 && levelFinal <=88">
+						    				<h5>Solidificación</h5>
+						    				<p>Se tiene evidencia y resultados del trabajo realizado, al interior de la empresa se trabaja de forma más rápido, y se incentiva y premia iniciativas nuevas.</p>
+						    			</div>
+						    			<div class="box-result" [style.background]="setColorResult(levelFinal)" *ngIf="levelFinal >=89 && levelFinal <=100">
+						    				<h5>Sólido</h5>
+						    				<p>lanzan productos/ servicios que generan valor y se consolida la innovación abierta con el ecosistema.</p>
+						    			</div>
+						    		</div>
+						    	</div>
+					    	</div>
+			    		</div>
+			    		<div class="container-result" style="margin-bottom:2rem">
+			    			<div class="bar-div margin-all">
+				    			<h3>Resumen General</h3>
+				    		</div>
+					    	<div class="row resumenDimensiones" *ngIf="competetitionsFinal.length > 0">
+					    		<div class="col-lg-7 users">
+					    			<div class="graph-all pull-right">
+						    			<div class="bar-dimension">
+											<div class="graph-bar">
+												<div class="box-bar first">
+								    				<div class="alternatives" *ngFor="let item of averagesTaB">
+														<span>{{item}}</span>
+													</div>
+												</div>
+												<div class="box-bar" *ngFor="let competencia of competetitionsFinal">
+													<div class="bar">
+							    						<div class="rate-block">
+							    							<div class="bar-chart" [style.background]="competencia.color" [style.height]="competencia.average">
+								    							<div class="value-score" [style.color]="competencia.color">
+								    								{{competencia.average}}
+								    							</div>
+
+								    						</div>
+								    						<div class="bar-content">
+								    							
+								    						</div>
+								    						<div class="bar-value">
+								    						</div>
+							    						</div>
+							    						
+							    					</div>
+							    					<div class="legend">
+							    						{{competencia.name}}
+							    					</div>
+												</div>
+							    			</div>
+										</div>
+						    		</div>
+					    		</div>
+					    		<div class="col-lg-5">
+					    			<div class="resumen-graph">
+					    				<div class="box-resume">
+					    					<h4>Resumen</h4>
+					    					<div class="dimension-list" *ngFor="let item of dimensiones">
+					    						<label>{{item._id.dimension}}</label>
+					    						<div class="progress">
+													<div class="progress-bar" role="progressbar" [attr.valuenow]="item.average" aria-valuemin="0" aria-valuemax="100" [style.width]="item.average + '%'" [style.background]="setColor(item._id.dimension)">
+													    <span>{{item.average}} %</span>
+													</div>
+												</div>
+											</div>
+					    				</div>
+					    			</div>
+					    		</div>
+					    	</div>
+			    		</div>
+				    	<div class="bar-div no-margin">
+			    			<h3>Comentario</h3>
+			    		</div>
+			    		<div class="comments">
+		    				<p>{{commentGeneral}}</p>
+		    			</div>
+		    		</div>
+		    		
+		    	</div>
+		    	<div class="message" *ngIf="grupos.length == 0"><br>No existe data para mostrar los reportes.</div>
+		    </tab>
+		    <tab heading="Detalle" (select)="selectGeneral()">
+		    	<tabset #dimensionTabs>
+		    		<tab [customClass]="'dimensionTab'" (select)="selectDimension(item._id)" *ngFor="let item of dimensions; let i = 'index'" heading="{{item.name}}">
+		    			<ng-template tabHeading>
+		    				<img class="iconD col" src="./assets/images/colaboracion.png" *ngIf="item.name == 'Colaboración'">
+		    				<img class="iconD lid" src="./assets/images/liderazgo.png" *ngIf="item.name == 'Liderazgo'">
+		    				<img class="iconD ex" src="./assets/images/experimentacion.png" *ngIf="item.name == 'Experimentación'">
+		    				<img class="iconD rec" src="./assets/images/recursosd.png" *ngIf="item.name == 'Recursos'">
+		    			</ng-template>
+		    			<div class="filter filderD">
+							<form class="form-inline">
+							  <div class="form-group" *ngIf="grupos.length > 1">
+							  	<label>Seleccione Batch:</label>
+							    <select class="customize" [(ngModel)]="filterDetail.group" name="group" (change)="getDataDetail()">
+							    	<option *ngFor="let item of grupos" value="{{item._id}}">{{item.name}}</option>
+							    </select>
+							  </div>
+							  <div class="form-group">
+							  	<label>Seleccione Comportamiento:</label>
+							    <select class="customize" [(ngModel)]="filterDetail.behavior" name="behavior" (change)="selectBehaviorDetail()">
+							    	<option value="">Todos</option>
+							    	<option *ngFor="let item of objAreas" value="{{item._id.area_id}}">{{item._id.area}}</option>
+							    </select>
+							  </div>
+							  <div class="form-group">
+							  	<label>Seleccione Área:</label>
+							    <select class="customize" [(ngModel)]="filterDetail.area" name="area" (change)="getDataDetail()">
+							    	<option value="">Todos</option>
+							    	<option *ngFor="let item of areas" value="{{item.name}}">{{item.name}}</option>
+							    </select>
+							  </div>
+							</form>
+						</div>	
+		    			<div class="graphD">
+		    				<h3>{{item.name + '\n' + item.average + '%'}}</h3>
+		    				<div class="graph-bar">
+		    					<div class="box-bar first">
+				    				<div class="alternatives" *ngFor="let item of averagesTaB">
+										<span>{{item}}</span>
+									</div>
+								</div>
+		    					<div class="box-bar areas" *ngFor="let objArea of objAreas">
+			    					<div class="bar">
+			    						<div class="rate-block">
+			    							<div class="dataChar" [style.height.%]="objArea.average + 11">
+		    									{{objArea.average + '%'}}
+		    								</div>
+			    							<div class="bar-chart {{objArea.selected?'selected':''}}" [style.height.%]="objArea.average">
+			    								
+				    						</div>
+				    						<div class="bar-content">
+				    							
+				    						</div>
+				    						<div class="bar-value">
+				    						</div>
+			    						</div>
+			    						
+			    					</div>
+			    					<div class="legend">
+			    						{{objArea._id.area}}
+			    					</div>
+			    				</div>
+		    				</div>
+		    				
+		    			</div>
+		    			<accordion class="question" [closeOthers]="oneAtATime">
+						  <accordion-group *ngFor="let question of questionsDetail; let o='index'" heading="{{question._id.question}}" class="question" (isOpenChange)='selectQuestion($event, question._id.question_id, i, o)'>
+						    <div class="question-box tabDetalleGraph">
+					    		<div class="body">
+					    			<div class="graph-bar">
+						    			<div class="box-bar first">
+						    				<div class="alternatives" *ngFor="let item of averagesDetailTab">
+												<span>{{item}}</span>
+											</div>
+										</div>
+					    				<div class="box-bar" *ngFor="let objQuestion of objQuestionsDetails[o]">
+					    					<div class="bar">
+					    						<div class="rate-block">
+					    							<div class="bar-chart" [style.height.%]="objQuestion.value">
+					    								<span class="dataChar">
+					    									{{objQuestion.value + '%'}}
+					    								</span>
+						    						</div>
+						    						<div class="bar-content">
+						    							
+						    						</div>
+						    						<div class="bar-value">
+						    						</div>
+					    						</div>
+					    						
+					    					</div>
+					    					<div class="legend">
+					    						{{objQuestion.alt}}
+					    					</div>
+					    				</div>
+					    			</div>
+					    		</div>
+				    		</div>
+						  </accordion-group>
+						</accordion>
+						<div class="box-comment" *ngIf="item.comments != ''">
+							<div class="bar-div no-margin">
+				    			<h3>Comentario</h3>
+				    		</div>
+				    		<div class="comments">
+			    				<p>{{item.comments}}</p>
+			    			</div>    
+						</div>	
+		    		</tab>
+		    	</tabset>
+		    </tab>
+		    <tab heading="Descarga">
+				<div class="row descargaTab">
+					
+					<div class="col-lg-6">
+					  <div class="form-group">
+					  	<label>Detalle</label>
+					    <select [(ngModel)]="filterForExcel.type" name="group">
+					    	<option value="area">Área</option>
+					    	<option value="position">Cargo</option>
+					    	<option value="gender">Sexo</option>
+					    	<option value="">Todos</option>
+					    </select>
+					    <button class="downloadedButton" (click)="exportXlsx()">Descargar XLSX <i class="fa fa-download"></i></button>
+					  </div>
+					</div>
+				</div>
+		    </tab>
+		</tabset>
+	</div>
+</div>

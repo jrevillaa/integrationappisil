@@ -1,0 +1,446 @@
+.tabGeneral .bar-content {
+    background: white;
+}
+.tabGeneral .bar-chart {
+    background: #239FD7;
+}
+.tabGeneral .box-bar {
+    padding: 4px;
+    margin: 0;
+    height: 182px;
+    border-bottom: 2px solid #239FD7;
+    padding-bottom: 0;
+    width: 33px;
+    max-width: 33px;
+}
+.tabGeneral .legend {
+    text-align: center;
+    font-weight: bold;
+    font-size: .8rem;
+    padding-top: .3rem;
+    transform: rotate(-56deg);
+    width: 166px;
+    position: relative;
+    top: 70px;
+    left: -115px;
+    text-align: right;
+    /*color: #7b7b7b;*/
+}
+.tabGeneral .graph-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+.tabGeneral .bar {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.tabGeneral .value-score {
+    position: relative;
+    top: -24px;
+    text-align: center;
+    font-size: .8rem;
+    font-weight: bold;
+}
+.tabGeneral .graph-all{
+    position: relative;
+    margin-top: -5rem;
+    padding-right: 2rem;
+    padding-bottom: 7rem;
+    padding-top: 1rem;
+}
+.tabGeneral .box-resume {
+    width: 60%;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid #565656;
+
+    margin-left: 1rem;
+}
+.tabGeneral .box-resume h4{
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    /*color: gray;*/
+}
+.tabGeneral .box-resume  label{
+    font-size: .9rem;
+    margin-bottom: 0;
+    font-weight: bold;
+    /*color: gray;*/
+}
+.tabGeneral .dimension-list {
+    margin-bottom: .2rem;
+}
+.tabGeneral .progress {
+    display: -ms-flexbox;
+    display: flex;
+    height: 1.1rem;
+    overflow: hidden;
+    font-size: 0.75rem;
+    background-color: #dedede;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+.tabGeneral .tabGeneral {
+    margin-top: 2rem;
+}
+.tabGeneral .result {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    color: white;
+    padding-left: 2rem;
+}
+.tabGeneral .box-result h5 {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.tabGeneral .box-result p {
+    text-align: center;
+    font-size: 1rem;
+}
+.tabGeneral { 
+    padding-bottom: 8rem;
+}
+.box-radar{
+    padding-right: 3.2rem;
+}
+.tabGeneral .form-group label,
+.descargaTab .form-group label{
+    font-size: 1.1rem;
+}
+.descargaTab {
+    margin-top: 2rem;
+    padding: 0 4rem;
+}
+.tabGeneral .form-group select,
+.descargaTab .form-group select{
+    display: inline-block;
+    width: 30%;
+    background: #2D3B63;
+    color: white;
+    border: 0;
+    padding: .5rem;
+    padding-bottom: .4rem;
+    font-size: .8rem;
+}
+.tabGeneral .form-group button{
+    display: inline-block;
+}
+.resumenDimensiones{
+    position: relative;
+    padding-top: 2rem;
+}
+.export {
+    text-align: right;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.tabDetalleGraph .bar-content {
+    background: white;
+}
+.tabDetalleGraph .bar-chart {
+    background: #2D3B63;
+    text-align: center;
+}
+.tabDetalleGraph .box-bar {
+    padding: 30px;
+    margin: 0;
+    height: 270px;
+    border-bottom: 2px solid #2D3B63;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.tabDetalleGraph .legend {
+    text-align: center;
+    font-weight: bold;
+    font-size: .8rem;
+    padding-top: .3rem;
+}
+.tabDetalleGraph .alternatives{
+    height: 10%;
+    text-align: right;
+}
+.tabDetalleGraph .alternatives span {
+    position: absolute;
+    top: -7px;
+    width: 100%;
+    left: 0;
+}
+.tabDetalleGraph .graph-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 76%;
+    margin: 0 auto;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+.tabDetalleGraph .bar {
+    width: 100%;
+    height: 100%;
+    max-width: 71px;
+    margin: 0 auto;
+}
+
+.tabDetalleGraph .rate-block {
+    border: 2px solid #2D3B63;
+}
+.tabDetalleGraph .dataChar{
+    text-align: center;
+    position: relative;
+    top: -18px;
+    font-size: .8rem;
+}
+.tabDetalleGraph .box-bar.first {
+    border-right: 2px solid #2D3B63;
+}
+.tabDetalle li.nav-item{
+    background-color: #3C9FD7 
+}
+li.nav-item.dimensionTab.active {
+    color:red;
+}
+.graphD{
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid #989898;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+.graphD h3{
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+.graphD .box-bar{
+    height: 270px;
+}
+.graphD  .rate-block {
+    width: 64%;
+    margin: 0 auto;
+}
+.graphD .graph-bar {
+
+    margin-top: 0rem;
+}
+.graphD .legend {
+    text-align: center;
+    padding-top: .5rem;
+    font-size: .9rem;
+}
+#myDiv{
+    height: 280px !important;
+}
+.bar-div {
+    background: #2D3B63;
+    z-index: 99999999;
+    padding: .8rem 1rem;
+    margin-bottom: 3rem;
+}
+
+.bar-div h3{
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+.container-result{
+    position: relative;
+}
+.comments {
+    border: 1px solid #aeaeae;
+    padding: 1.2rem;
+    /*background: #f0f0f0;*/
+    /* border-radius: 7px; */
+}
+.comments p{
+    text-align: justify;
+}
+.no-margin{
+    margin-bottom: 0;
+}
+.listClasifications{
+    display: table;
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+    right: 14px;
+    /* top: 30px; */
+}
+.clasification{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 16%;
+    color: white;
+    padding-top: .3rem;
+    padding: .5rem 0;
+}
+.clasification span{
+    font-size: .78rem;
+    font-weight: bold;
+}
+.statusFinal {
+    margin-bottom: 3rem;
+}
+label.label-font {
+    font-size: 14px !important;
+    margin-right: .5rem;
+}
+.width-normal{
+    width: 70%;
+}
+.box-comment {
+    margin-bottom: 2rem;
+}
+
+.resumenDimensiones .box-bar.first,
+.graphD .box-bar.first{
+    /* padding-right: 1rem; */
+    width: 50px !important;
+    max-width: 62px !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+}
+.graphD .box-bar.first{
+    /* padding-right: 1rem; */
+    width: 50px !important;
+    max-width: 62px !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    margin: 0;
+    border-right: 2px solid #2D3B63;
+}
+
+
+.resumenDimensiones .alternatives span,
+.graphD .alternatives span{
+    position: relative !important; 
+    top: -4px; 
+    width: 100%;
+    /* left: -7px; */
+}
+.box-bar.areas{
+    height: 270px;
+    border-bottom: 2px solid #2D3B63;
+    margin: 0;
+}
+.descriptionDimension{
+    border:1px solid #aeaeae;
+}
+.headerText{
+    background-color: #2D3B63;
+    border-bottom:1px solid #aeaeae;
+    color: white;
+    padding: 1rem;
+}
+.boxDescription{
+    padding: 1rem;
+}
+.iconD{
+    width: 33px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: .8rem;
+}
+img.iconD.lid {
+    margin-top: .3rem;
+}
+img.iconD.col {
+    width: 78px;
+}
+
+@media(max-width: 768px){
+    .graph-all{
+        float: none !important;
+    }
+    .result{
+        padding: 0 !important;
+        padding-top: 2rem !important;
+    }
+    .bar-div[_ngcontent-c2] {
+        margin-top: 3rem;
+    }
+    .box-result{
+        width: 100%;
+    }
+    .box-resume{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .listClasifications {
+        display: table;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        /* right: 14px; */
+    }
+    .clasification {
+        /* display: table-cell; */
+        vertical-align: middle;
+        display: inline-block;
+        text-align: center;
+        width: 50%;
+        color: white;
+        padding-top: .3rem;
+        padding: .5rem 0;
+    }
+    #myDiv{
+        z-index: -1;
+        margin-bottom: 7rem;
+    }
+    .box-radar{
+        padding-right: 0;
+        float: none;
+        overflow-x: scroll;
+    }
+    .container-result .row{
+        margin: 0 !important;
+    }
+    .resumen-graph {
+        margin-top: 2rem;
+    }
+    .resumenDimensiones div{
+        padding:0 ;
+    }
+    .statusFinal div.col-lg-5,
+    .statusFinal div.col-lg-7{
+        padding: 0;
+    }
+    .question-box .body {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        overflow-x: scroll;
+        padding-top: 1rem;
+        padding-bottom: 4rem;
+    }
+    .question-box {
+        position: relative;
+        padding: 0 !important;
+    }
+    .filter.filderD {
+        margin-top: 3rem !important;
+        padding-bottom: 0 !important;
+    }
+    .margin-all{
+        margin-top: 3rem;
+        margin-bottom: 0;
+    }
+    .graph-all{
+        position: relative;
+        margin-top: 1rem !important;
+        padding-right: 2rem !important;
+        padding-bottom: 11rem !important;
+        padding-top: 1rem !important;   
+    }
+}

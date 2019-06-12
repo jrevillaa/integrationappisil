@@ -1,0 +1,24 @@
+<div id="home">
+	<div id="background1">
+		<div class="welcome login">
+			
+			<form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value, userForm.valid)">
+				<alert  class="margin errorLogin" type="danger" *ngIf="showError">
+			    	<p>{{message}}</p>
+			    </alert>
+				<img src="./assets/images/logo.png">
+				<div class="box-input">
+					<input formControlName="email" type="text" name="email">
+					<label>Usuario</label>
+				</div>
+				<div class="box-input form-forget">
+					<input formControlName="password" type="password" name="pass">
+					<label>Contraseña</label>
+				</div>
+				<button class="capsule-button transparent button">
+					Iniciar sesión
+				</button>
+			</form>		
+		</div>
+	</div>
+</div>

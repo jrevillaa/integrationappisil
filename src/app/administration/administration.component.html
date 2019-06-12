@@ -1,0 +1,146 @@
+<div class="manu-nav">
+  <div class="menu-head">
+    <div class="image-responsive"> 
+      <img  src="{{image}}">
+    </div>
+    <button class="btn-nav" (click)="collapse()">
+        <i class="fa fa-bars"></i>
+    </button>
+  </div>
+  <div class="menu-list">
+    <ul class="nav-list">
+      <!-- <li (click)="goCompanies()" *ngIf="user.role == 'Admin'" [routerLink]="['/admin/empresas/']" routerLinkActive="active-route" class="nav-item">
+        <a>
+          <i class="fa fa-building"></i> Empresas 
+        </a>
+      </li>
+      <li *ngIf="user.role == 'Admin'" [routerLink]="['/admin/usuarios/']" routerLinkActive="active-route" class="nav-item">
+        <a>
+          <i class="fa fa-users"></i> Usuarios 
+        </a>
+      </li>
+      <li *ngIf="user.role == 'Poolster'" [routerLink]="['/admin/empresas', user.company, 'usuarios']" routerLinkActive="active-route" class="nav-item">
+        <a>
+          <i class="fa fa-users"></i> Participantes 
+        </a>
+      </li>
+      <li *ngIf="user.role == 'Poolster' || user.role=='Reader'" [routerLink]="['/admin/empresas', user.company, 'reportes','status']" routerLinkActive="active-route" class="nav-item">
+        <a>
+          <i class="fa fa-list-alt"></i> Estado Assessment 
+        </a>
+      </li>
+      <li *ngIf="user.role == 'Poolster' || user.role=='Reader'" [routerLink]="['/admin/empresas', user.company, 'reportes','diagnostic']" routerLinkActive="active-route" class="nav-item">
+        <a>
+          <i class="fa fa-line-chart"></i> Resultados 
+        </a>
+      </li> -->
+      <!-- <li *ngIf="user.role == 'Admin'" [routerLink]="['/admin/empresas', user.company, 'reportes']" routerLinkActive="active-route" class="nav-item">
+        <a>
+          <i class="fa fa-signal"></i> Reportes 
+        </a>
+      </li> -->
+      <!-- <li *ngIf="user.role == 'Admin'" [routerLink]="['/admin/preguntas_iniciales/']" routerLinkActive="active-route" class="nav-item">
+        <a>
+          <i class="fa fa-list"></i> Preguntas Iniciales
+        </a>
+      </li> -->
+      <!-- <li *ngIf="user.role == 'Admin'" [routerLink]="['/admin/preguntas/']" routerLinkActive="active-route" class="nav-item">
+        <a>
+          <i class="fa fa-list-alt"></i> Preguntas 
+        </a>
+      </li> -->
+      
+     <!--  <li  [routerLink]="['/reports']" routerLinkActive="active-route" class="nav-item">
+        <a>
+          <i class="fa fa-signal"></i> Reportes 
+        </a>
+      </li> -->
+      <!-- <li (click)="logout()" class="nav-item">
+        <a href="/login">
+          <i class="fa fa-sign-out"></i> Cerrar Sesión 
+        </a>
+      </li> -->
+    </ul>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block sidebar">
+      <div class="sidebar-sticky">
+        <div class="header-sidebar">
+          <!-- <img *ngIf="user.role == 'Admin'" src="./assets/images/logo.png"> -->
+          <!-- <img *ngIf="user.role == 'Poolster' || user.role == 'Reader'" src="{{image}}"> -->
+          <img  src="{{image}}">
+
+        </div>
+        <ul class="nav flex-column">
+          <!-- <li class="name-user nav-item">
+            <h2><i class="fa fa-user-circle"></i>{{nameRoles[user.role]}}</h2>
+          </li> -->
+
+        </ul>
+        <ul class="nav flex-column">
+          <!-- <li (click)="goCompanies()" *ngIf="user.role == 'Admin'" [routerLink]="['/admin/empresas/']" routerLinkActive="active-route" class="nav-item">
+            <a>
+              <i class="fa fa-building"></i> Empresas 
+            </a>
+          </li>
+          <li *ngIf="user.role == 'Admin'" [routerLink]="['/admin/usuarios/']" routerLinkActive="active-route" class="nav-item">
+            <a>
+              <i class="fa fa-users"></i> Usuarios 
+            </a>
+          </li>
+          <li *ngIf="user.role == 'Poolster'" [routerLink]="['/admin/empresas', user.company, 'usuarios']" routerLinkActive="active-route" class="nav-item">
+            <a>
+              <i class="fa fa-users"></i> Participantes 
+            </a>
+          </li>
+          <li *ngIf="user.role == 'Poolster' || user.role=='Reader'" [routerLink]="['/admin/empresas', user.company, 'reportes','status']" routerLinkActive="active-route" class="nav-item">
+            <a>
+              <i class="fa fa-list-alt"></i> Estado de Assessment 
+            </a>
+          </li>
+          <li *ngIf="user.role == 'Poolster' || user.role=='Reader'" [routerLink]="['/admin/empresas', user.company, 'reportes','diagnostic']" routerLinkActive="active-route" class="nav-item">
+            <a>
+              <i class="fa fa-line-chart"></i> Resultados 
+            </a>
+          </li> -->
+          <!-- <li *ngIf="user.role == 'Admin'" [routerLink]="['/admin/empresas', user.company, 'reportes']" routerLinkActive="active-route" class="nav-item">
+            <a>
+              <i class="fa fa-signal"></i> Reportes 
+            </a>
+          </li> -->
+          <!-- <li *ngIf="user.role == 'Admin'" [routerLink]="['/admin/preguntas_iniciales/']" routerLinkActive="active-route" class="nav-item">
+            <a>
+              <i class="fa fa-list"></i> Preguntas Iniciales
+            </a>
+          </li> -->
+          <!-- <li *ngIf="user.role == 'Admin'" [routerLink]="['/admin/preguntas/']" routerLinkActive="active-route" class="nav-item">
+            <a>
+              <i class="fa fa-list-alt"></i> Preguntas 
+            </a>
+          </li> -->
+         
+         <!--  <li  [routerLink]="['/reports']" routerLinkActive="active-route" class="nav-item">
+            <a>
+              <i class="fa fa-signal"></i> Reportes 
+            </a>
+          </li> -->
+          <!-- <li (click)="logout()" class="nav-item">
+            <a href="/login">
+              <i class="fa fa-sign-out"></i> Cerrar Sesión 
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      
+      <router-outlet></router-outlet>
+     
+    </main>
+  </div>
+</div>
+
+

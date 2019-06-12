@@ -1,0 +1,131 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li *ngIf="user && user.role == 'Admin'" class="breadcrumb-item"><a  [routerLink]="['/admin/empresas']">Empresas</a></li>
+		    <li *ngIf="company && company.name" class="breadcrumb-item active" aria-current="page"><a [routerLink]="[(user.role == 'Admin' || user.role == 'Poolster')?('/admin/empresas/' + id):('/admin/empresas/' + id + '/reportes')]">{{company.name}}</a></li>
+		    <li class="breadcrumb-item"><a [routerLink]="['/admin/empresas/' + id + '/reportes']">Resultados</a></li>
+		    <li class="breadcrumb-item">Resumen</li>
+		</div>
+		<a [routerLink]="['/admin/empresas/' + id + '/reportes']"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="questions">
+		<tabset #staticTabs>
+		    <tab heading="General">
+		    	
+		    </tab>
+		    <tab heading="Detalle" (select)="selectGeneral()">
+		    	<tabset #dimensionTabs>
+		    		<tab [customClass]="'dimensionTab'" (select)="selectDimension(item._id)" *ngFor="let item of dimensions; let i = 'index'"  heading="{{item.name + '\n' + item.average + '%'}}">
+		    			<div class="filter">
+							<form class="form-inline">
+							  <div class="form-group" *ngIf="grupos.length > 1">
+							  	<label>Seleccione Batch:</label>
+							    <select [(ngModel)]="filterDetail.group" name="group" (change)="getDataDetail()">
+							    	<option *ngFor="let item of grupos" value="{{item._id}}">{{item.name}}</option>
+							    </select>
+							  </div>
+							  <div class="form-group">
+							  	<label>Seleccione Comportamiento:</label>
+							    <select [(ngModel)]="filterDetail.behavior" name="behavior" (change)="selectBehaviorDetail()">
+							    	<option value="">Todos</option>
+							    	<option *ngFor="let item of objAreas" value="{{item._id.area_id}}">{{item._id.area}}</option>
+							    </select>
+							  </div>
+							  <div class="form-group">
+							  	<label>Seleccione Área:</label>
+							    <select [(ngModel)]="filterDetail.area" name="area" (change)="getDataDetail()">
+							    	<option value="">Todos</option>
+							    	<option *ngFor="let item of areas" value="{{item.name}}">{{item.name}}</option>
+							    </select>
+							  </div>
+							</form>
+						</div>	
+		    			<div class="row">
+		    				<div class="col-sm-5 graph-bar">
+		    					<div class="box-bar areas" *ngFor="let objArea of objAreas">
+			    					<div class="bar">
+			    						<div class="rate-block">
+			    							<div class="dataChar" [style.height.%]="objArea.average + 11">
+		    									{{objArea.average + '%'}}
+		    								</div>
+			    							<div class="bar-chart {{objArea.selected?'selected':''}}" [style.height.%]="objArea.average">
+			    								
+				    						</div>
+				    						<div class="bar-content">
+				    							
+				    						</div>
+				    						<div class="bar-value">
+				    						</div>
+			    						</div>
+			    						
+			    					</div>
+			    					<div class="legend">
+			    						{{objArea._id.area}}
+			    					</div>
+			    				</div>
+		    				</div>
+		    				
+		    			</div>
+		    			<accordion class="question" [closeOthers]="oneAtATime">
+						  <accordion-group *ngFor="let question of questionsDetail; let o='index'" heading="{{question._id.question}}" class="question" (isOpenChange)='selectQuestion($event, question._id.question_id, i, o)'>
+						    <div class="question-box tabDetalleGraph">
+					    		<div class="body">
+					    			<div class="graph-bar">
+						    			<div class="box-bar first">
+						    				<div class="alternatives" *ngFor="let item of averagesDetailTab">
+												<span>{{item}}</span>
+											</div>
+										</div>
+					    				<div class="box-bar" *ngFor="let objQuestion of objQuestionsDetails[o]">
+					    					<div class="bar">
+					    						<div class="rate-block">
+					    							<div class="bar-chart" [style.height.%]="objQuestion.value">
+					    								<span class="dataChar">
+					    									{{objQuestion.value + '%'}}
+					    								</span>
+						    						</div>
+						    						<div class="bar-content">
+						    							
+						    						</div>
+						    						<div class="bar-value">
+						    						</div>
+					    						</div>
+					    						
+					    					</div>
+					    					<div class="legend">
+					    						{{objQuestion.alt}}
+					    					</div>
+					    				</div>
+					    			</div>
+					    		</div>
+				    		</div>
+						  </accordion-group>
+						</accordion>    			
+		    		</tab>
+		    	</tabset>
+		    </tab>
+		    <tab heading="Descarga">
+				<div class="row descargaTab">
+					
+					<div class="col-lg-12">
+					  <div class="form-group">
+					  	<label>Detalle</label>
+					    <select [(ngModel)]="filterForExcel.type" name="group">
+					    	<option value="area">Área</option>
+					    	<option value="position">Cargo</option>
+					    	<option value="gender">Sexo</option>
+					    	<option value="">Todos</option>
+					    </select>
+					    <button class="downloadedButton" (click)="exportXlsx()" >Descargar XLSX <i class="fa fa-download"></i></button>
+					  </div>
+					</div>
+				</div>
+	    		<div class="canvasAdd">
+	    			
+	    		</div>
+		    </tab>
+		</tabset>
+	</div>
+</div>

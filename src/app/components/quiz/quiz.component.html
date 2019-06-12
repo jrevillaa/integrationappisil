@@ -1,0 +1,97 @@
+<div id="pre_quiz">
+	<div id="background2"> </div>
+	<div id="container">
+		<div class="header-logo">
+			<h2 >
+				<!-- {{realSegment.name}} -->
+			</h2>
+
+			<img class="logo-left" src="./assets/images/logo.png">
+		</div>
+
+		<div class="bar-progress">
+			<div class="segment {{i < numRealSegment?'passed':''}}" *ngFor="let segment of segments; let i='index'">
+				<p class="name_segment" [ngClass]="(segment.name==realSegment.name)?'active':''">{{segment.name}}</p>
+				<div class="area {{i == numRealSegment && o < numRealArea?'passed':''}}" *ngFor="let area of segment.areas; let o='index'">
+
+
+					<div class="part {{i == numRealSegment && o == numRealArea && u < numRealPart?'passed':''}}" *ngFor="let part of area.numbers; let u='index'"></div>
+				</div>
+			</div>
+		</div>
+
+		<div >
+			<!-- <h2 class="realArea">{{realArea.name}}</h2> -->
+
+			<div class="question" *ngFor="let question of questions; let i ='index'">
+				<p class="text_question">{{question.question}}</p> <!-- ((numRealPart * 2) + i + 1) + '.- ' +  -->
+				<div class="box-rating" *ngIf="question.type == '' || question.type == 3">
+				  <rating [max]="5" [(ngModel)]="question.answer" (onLeave)="resetStar(question)" (onHover)="hoveringOver(question, $event)" [customTemplate]="tt"></rating> <!--  -->
+				  <!-- <span class="mgl-10">{{!question.preAnswer?titles[question.answer]:titles[question.preAnswer]}}</span> -->
+				  <ng-template #tt let-i="index" let-v="value">
+				  	<button  class="btn btnImage btn-{{i < v ? 'selected' : 'default'}}" >
+				  		<div class="iconImage" *ngIf="i == 0">
+				  			<div class="box-imageIcon">
+				  				<img src="{{i < v ? 'assets/images/nunca_lleno.png' : 'assets/images/nunca.png'}}">
+				  			</div>
+					  		<p>Nunca</p>
+					  	</div>
+					  	<div class="iconImage"  *ngIf="i == 1">
+					  		<div class="box-imageIcon">
+					  			<img src="{{i < v ? 'assets/images/rara_lleno.png' : 'assets/images/rara.png'}}">
+					  		</div>
+					  		
+					  		<p>Rara vez</p>
+
+					  	</div>
+					  	<div  class="iconImage" *ngIf="i == 2">
+					  		<div class="box-imageIcon">
+					  			<img src="{{i < v ? 'assets/images/aveces_lleno.png' : 'assets/images/aveces.png'}}">
+					  		</div>
+					  		
+					  		<p>A veces</p>
+					  	</div>
+					  	<div  class="iconImage" *ngIf="i == 3">
+					  		<div class="box-imageIcon">
+					  			<img src="{{i < v ? 'assets/images/casi_lleno.png' : 'assets/images/casi.png'}}">
+					  		</div>
+					  		
+					  		<p>Casi siempre</p>
+
+					  	</div>
+					  	<div  class="iconImage" *ngIf="i == 4">
+					  		<div class="box-imageIcon">
+					  			<img src="{{i < v ? 'assets/images/siempre_lleno.png' : 'assets/images/siempre.png'}}">
+					  		</div>
+					  		
+					  		<p>Siempre</p>
+
+					  	</div>
+				  	</button>
+				  	
+				    <!-- <button class="btn btn-{{i < v ? 'selected' : 'default'}}">
+				      <i class="fa fa-battery-{{i < v ? 'full' : 'empty'}}"></i>
+				    </button> -->
+				  </ng-template>
+				</div>
+
+				<div class="mgl-10" *ngIf="question.type == 1 || question.type == 2">
+			  		<p class="pointer {{answer.selected?'black':''}}" (click)="answereds(i, o)" *ngFor="let answer of question.answers; let o = 'index'">{{letter[o] + ')  ' + answer.text}}</p>
+				</div>
+				<br>
+			</div>
+		</div>
+
+
+		<div class="capsule-button fb">
+			<a (click)="backView()" class="button pointer"> Atrás </a>
+
+			
+			<a (click)="nextView(questions)" class="button pointer" *ngIf="numRealSegment == segments.length - 1 && numRealArea == segments[numRealSegment].areas.length - 1; else block"> Finalizar</a>
+			<ng-template #block>
+				<a (click)="nextView(questions)" class="button pointer"> Continuar</a>
+			</ng-template>
+
+		</div>
+	</div>		
+</div>

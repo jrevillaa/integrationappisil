@@ -1,0 +1,56 @@
+<div id="home">
+	<div class="header-logo responsive-none">
+
+		<img class="logo-left" src="./assets/images/logo.png">
+	</div>
+	<div id="background1">
+
+		<div class="welcome responsive-block">
+			<div class="header-logo">
+				<img class="logo-left" src="./assets/images/logo.png">
+			</div>
+			<div class="pre">
+				<label>Hola!</label>
+				<label>Agradecemos de antemano tu valiosa colaboración en el llenado de este assessment, el cual te tomará entre 15 y 25 minutos completarla.</label>
+				<label>El análisis de sus resultados nos proporcionará los elementos fundamentales para diseñar
+				un plan de acción que permita poner las bases de la cultura de innovación.</label>
+				<label>
+				Recuerda: que no hay respuestas buenas ni malas y toda la información que proporciones
+				es anónima y no será evaluada de forma individual.</label>
+				<label>¡Muchas gracias por tu colaboración!</label>
+				<label class="margin-top">Antes de continuar introduzca su código de acceso: <input [(ngModel)]="survey.code" type="text" name="code"> </label> 
+				<br>
+				
+
+				<div class="listo">
+					<div class="capsule-button transparent">
+						<a (click)="login(templateValidate)" class="button"> Continuar </a>
+					</div>
+				</div>
+				
+			</div>
+			<!-- <img src="./assets/images/logo.png"> -->
+			
+		</div>
+
+	</div>
+	
+	
+</div>
+
+<ng-template #templateValidate>
+  <div class="modal-body popup-finish">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <br><br>
+  	<div class="preCarga">
+  		<alert  type="danger">
+	    	<p>{{message}}</p>
+	    </alert>
+  	</div>
+    <div class="actions">
+      <a class="btn btn-primary white btn-pop" (click)="close()">OK</a>
+    </div>
+  </div>
+</ng-template>

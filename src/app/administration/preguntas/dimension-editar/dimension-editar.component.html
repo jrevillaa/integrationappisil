@@ -1,0 +1,36 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+	  	<div>
+		    <li class="breadcrumb-item"><a  [routerLink]="['/admin/preguntas']">Dimensiones</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">{{dimension.name}}</li>
+		    <li class="breadcrumb-item active" aria-current="page">Editar Dimensión</li>
+	  	</div>
+	    <a [routerLink]="['/admin/preguntas']"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component">
+		<div class="form-add block form-view">
+			<h4><strong>Editar Dimensión</strong></h4>
+			<div class="box-form-add">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Nombre:</label>
+					<textarea [(ngModel)]="dimension.name"></textarea>
+				</div>
+				<div class="form-group">
+					<label>Curso:</label>
+					<select [(ngModel)]="dimension.course" class="medium" name="course">
+							<option *ngFor="let course of courses" value="{{course._id}}">{{course.name}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Orden:</label>
+					<input [(ngModel)]="dimension.weight" class="medium" type="Number" name="weight" placeholder="">
+				</div>
+				<div class="actions">
+					<button (click)="updateDimension()" type="button" class="btn btn-outline-primary"> <i class="fa fa-save"></i> Guardar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

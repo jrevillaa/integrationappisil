@@ -1,0 +1,87 @@
+<div id="pre_quiz">
+	<div id="background2"> </div>
+	<div id="container">
+		<div class="header-logo">
+			<h2 >
+				<!-- {{realSegment.name}} -->
+			</h2>
+
+			<img class="logo-left" src="./assets/images/logo.png">
+		</div>
+		<div class="info-container">
+			<h2>Diagnóstico de una Cultura de Innovación</h2>
+			<p class="descriptionInfo">El Diagnóstico de la Cultura de la Innovación mide el nivel de solidez (madurez) de una organización respecto al desarrollo de la Cultura de la Innovación. En ese sentido, diagnostica el estadío en el que se encuentra la organización, mostrando los puntos fuertes y áreas a trabajar para la toma de acciones concretas en busca de la construcción de las bases de la Cultura de Innovación. 
+			Para ello emplearemos el modelo de Cultura de la Innovación, donde con un cuestionario, evaluaremos 4 dimensiones, cada una de las cuales se descompone a su vez, en comportamientos con una o dos preguntas a medir.
+			Aquí podrás ver cada dimensión con sus distintos comportamientos.</p>
+			<tabset #staticTabs>
+		    	<tab heading="Liderazgo">
+		    		<div class="areas" *ngFor="let data of liderazgo; let i='index'">
+		    			<div class="header-collapse" (click)="collapse(data.id)">
+		    				<div class="image-area">
+		    					<img src="{{data.img}}">
+		    				</div>
+		    				<div class="title-area">
+		    					{{data.header}} <i class="fa fa-sort-down"></i>
+		    				</div>
+		    			</div>
+		    			<div class="body-collapse index{{data.id}}">
+		    				{{data.content}}
+		    				<div class="closeSlide"><i class="fa fa-sort-up" (click)="collapse(data.id)"></i></div>
+		    			</div>
+		    		</div>
+    			</tab>
+		    	<tab heading="Colaboración">
+		    		<div class="areas" *ngFor="let data of colaboracion; let i='index'">
+		    			<div class="header-collapse" (click)="collapse(data.id)">
+		    				<div class="image-area">
+		    					<img src="{{data.img}}">
+		    				</div>
+		    				<div class="title-area">
+		    					{{data.header}} <i class="fa fa-sort-down"></i>
+		    				</div>
+		    			</div>
+		    			<div class="body-collapse index{{data.id}}">
+		    				{{data.content}}
+		    				<div class="closeSlide"><i class="fa fa-sort-up" (click)="collapse(data.id)"></i></div>
+		    			</div>
+		    		</div>
+		    	</tab>
+		    	<tab heading="Experimentación">
+		    		<div class="areas" *ngFor="let data of experimentacion; let i='index'">
+		    			<div class="header-collapse" (click)="collapse(data.id)">
+		    				<div class="image-area">
+		    					<img src="{{data.img}}">
+		    				</div>
+		    				<div class="title-area">
+		    					{{data.header}} <i class="fa fa-sort-down"></i>
+		    				</div>
+		    			</div>
+		    			<div class="body-collapse index{{data.id}}">
+		    				{{data.content}}
+		    				<div class="closeSlide"><i class="fa fa-sort-up" (click)="collapse(data.id)"></i></div>
+		    			</div>
+		    		</div>
+		    	</tab>
+		    	<tab heading="Recursos">
+		    		<div class="areas" *ngFor="let data of recursos; let i='index'">
+		    			<div class="header-collapse" (click)="collapse(data.id)">
+		    				<div class="image-area">
+		    					<img src="{{data.img}}">
+		    				</div>
+		    				<div class="title-area">
+		    					{{data.header}} <i class="fa fa-sort-down"></i>
+		    				</div>
+		    			</div>
+		    			<div class="body-collapse index{{data.id}}">
+		    				{{data.content}}
+		    				<div class="closeSlide"><i class="fa fa-sort-up" (click)="collapse(data.id)"></i></div>
+		    			</div>
+		    		</div>
+		    	</tab>
+		    </tabset>
+		    <div class="capsule-button transparent">
+				<a routerLink="/inicio" class="button"> Regresar </a>
+			</div>
+		</div>
+	</div>		
+</div>

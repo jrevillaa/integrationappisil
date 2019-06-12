@@ -1,0 +1,30 @@
+<div id="pre_quiz">
+	<div id="background2"> </div>
+	<div id="container">
+		<div class="header-logo">
+			<h2>
+				Información referencial
+			</h2>
+
+			<img class="logo-left" src="./assets/images/logo.png">
+		</div>
+
+		<div>
+			<div class="question" *ngFor="let prequire of prerequired; let i ='index'">
+				<p>{{(i + 1) + '.- ' + prequire.text}}</p>
+				<br>
+				<input name="answer" [(ngModel)]="prequire.answer" *ngIf="prequire.type == 'Sin Alternativas'" type="text">
+
+				<input *ngIf="prequire.type == 'Sí o No'" class="checkbox" type="radio" [disabled]="disabledRadio" value="SI" id='radio-{{1}}' [(ngModel)]="prequire.answer" name="groupradio-{{i}}">{{prequire.type == 'Sí o No'?' SI':''}}
+				<br *ngIf="prequire.type == 'Sí o No'">
+				<br *ngIf="prequire.type == 'Sí o No'">
+				<input *ngIf="prequire.type == 'Sí o No'" class="checkbox" type="radio" [disabled]="disabledRadio" value="NO" id='radio-{{1}}' [(ngModel)]="prequire.answer" name="groupradio-{{i}}">{{prequire.type == 'Sí o No'?' NO':''}}
+			</div>
+		</div>
+
+		<div class="capsule-button fb">
+			<!-- <a routerLink="/encuesta" class="button"> Atrás </a> -->
+			<a (click)="saveAnswers()" class="button"> Continuar </a>
+		</div>
+	</div>		
+</div>

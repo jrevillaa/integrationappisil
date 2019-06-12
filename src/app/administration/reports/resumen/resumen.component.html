@@ -1,0 +1,70 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li *ngIf="user.role == 'Admin'" class="breadcrumb-item"><a  [routerLink]="['/admin/empresas']">Empresas</a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><a [routerLink]="[(user.role == 'Admin' || user.role == 'Poolster')?('/admin/empresas/' + id):('/admin/empresas/' + id + '/reportes')]">{{company.name}}</a></li>
+		    <li class="breadcrumb-item"><a [routerLink]="['/admin/empresas/' + id + '/reportes']">Resultados</a></li>
+		    <li class="breadcrumb-item">Estado de assessment</li>
+		</div>
+		<a [routerLink]="['/admin/empresas/' + id + '/reportes']"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component" *ngIf="grupos.length > 0">
+		<div class="filter">
+			<form class="form-inline">
+			  <div class="form-group" *ngIf="grupos.length > 1">
+			  	<label>Seleccione Batch:</label>
+			    <select [(ngModel)]="filter.group" name="group" (change)="getData(filter, true)">
+			    	<option *ngFor="let item of grupos" value="{{item._id}}">{{item.name}}</option>
+			    </select>
+			  </div>
+			  <div class="form-group">
+			  	<label>Seleccione Área:</label>
+			    <select [(ngModel)]="filter.area" name="area" (change)="getData(filter, false)">
+			    	<option value="">Todos</option>
+			    	<option *ngFor="let item of areas" value="{{item._id}}">{{item.name}}</option>
+			    </select>
+			  </div>
+			  <div class="form-group">
+			  	<label>Seleccione Semana:</label>
+			    <select [(ngModel)]="filter.dateWeek" name="area" (change)="getData(filter, false)">
+			    	<option value="">Todos</option>
+			    	<option *ngFor="let item of weeks; let i='index'" value="{{item}}">Semana {{i + 1}}</option>
+			    </select>
+			  </div>
+			</form>
+		</div>	
+		<div class="status-report row">
+			<div class="status col-lg-6 col-xs-12">
+				<div class="status-box pull-right">
+					<div class="icon">
+						<i class="fa fa-users"></i>
+					</div>
+					<div class="data">
+						<h3>{{evo.completeds}} de {{evo.all}}</h3>
+					</div>
+					<div class="description">
+						<p>Personas han resuelto el assessment hasta el momento</p>
+					</div>
+				</div>
+			</div>
+			<div class="status col-lg-6 col-xs-12">
+				<div class="status-box pull-left">
+					<div class="icon">
+						<i class="fa fa-clock-o"></i>
+					</div>
+					<div class="data">
+						<h3>{{evo.average}}</h3>
+					</div>
+					<div class="description">
+						<p>Es el tiempo promedio de resolución de el assessment</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="message" *ngIf="grupos.length == 0">
+		No existe data para mostrar los reportes.
+	</div>
+</div>

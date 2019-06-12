@@ -1,0 +1,73 @@
+.list-component .box{
+	display: block;
+	width: 100%;
+	padding: 2.5rem 0;
+}
+.list-component{
+	display: table;
+	width: 100%;
+}
+.list-component .list-box{
+	width: 28%;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 1rem;
+}
+.list-component .logo{
+	width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 3.5rem;
+}
+.list-component .title{
+	width: 100%;
+}
+.list-component .box .logo img {
+    width: 35%;
+    height: auto;
+}
+.list-component .box .title {
+    display: block;
+    width: 100%;
+    float: inherit;
+    text-align: center;
+    margin-top: 1rem;
+}
+.contain-boxes{
+    width: 100%;
+    text-align: center;
+    padding-top: 5rem;
+}
+.logo i{
+    font-size: 3rem;
+}
+
+@media(max-width: 768px){
+    .list-component .list-box {
+        width: 50%;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 1rem;
+    }
+}
+
+@media(max-width: 480px){
+    .contain-boxes{
+        width: 100%;
+        /* text-align: center; */
+        padding-top: 1rem;
+    }
+    .list-component .list-box {
+        width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 1rem;
+    }
+}

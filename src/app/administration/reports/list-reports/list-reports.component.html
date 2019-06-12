@@ -1,0 +1,45 @@
+<div class="content">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+		<div>
+			<li *ngIf="user.role == 'Admin'" class="breadcrumb-item"><a  [routerLink]="['/admin/empresas/']">Empresas</a></li>
+		    <li class="breadcrumb-item"><a [routerLink]="[(user.role == 'Admin' || user.role == 'Poolster')?('/admin/empresas/' + id):('/admin/empresas/' + id + '/reportes')]">{{company.name}}</a></li>
+		    <li class="breadcrumb-item active" aria-current="page">Resultados</li>
+		</div>
+		<a *ngIf="user.role == 'Admin' || user.role == 'Poolster'" [routerLink]="['/admin/empresas/' + id]"><i class="fa fa-arrow-left"></i></a>
+	  </ol>
+	</nav>
+	<div class="list-component">
+		<div class="contain-boxes">
+			<div class="list-box" (click)="goStatus()">
+				<div class="box empresa">
+					<div class="logo">
+						<i class="fa fa-list-alt"></i>
+					</div>
+					<div class="title">
+						<h3>Estado de assessment</h3>
+					</div>
+				</div>
+			</div>
+			<div class="list-box" (click)="goDiagnostic()">
+				<div class="box empresa">
+					<div class="logo">
+						<i class="fa fa-line-chart"></i>
+					</div>
+					<div class="title">
+						<h3>Resultados</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="box empresa" (click)="goEmpresa()">
+			<div class="title">
+				<h3>sCOT</h3>
+			</div>
+			<div class="logo">
+				<img src="./assets/images/atypax.jpg">
+			</div>
+		</div> -->
+		
+	</div>
+</div>
